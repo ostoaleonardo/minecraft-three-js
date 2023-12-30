@@ -1,0 +1,57 @@
+* {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.cursor {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 2rem;
+    mix-blend-mode: difference;
+}
+
+.inventory-bar {
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory-items {
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+
+.inventory-item {
+    width: 50px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-width: 6px;
+    border-style: solid;
+    border-style: ridge;
+    border-color: black;
+    image-rendering: pixelated;
+}
+
+.selected-item {
+    scale: 1.1;
+    border-color: white;
+}
