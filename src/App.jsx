@@ -1,29 +1,16 @@
-import { Physics } from '@react-three/cannon'
-import { Sky } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import { Ground } from './components/Ground.jsx'
-import { FPV } from './components/FPV.jsx'
-import { Player } from './components/Player.jsx'
-import { Cursor } from './components/Cursor.jsx'
-import { Cubes } from './components/Cubes.jsx'
-import { InventoryBar } from './components/InventoryBar.jsx'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Game from './pages/Game.jsx'
+import Worlds from './pages/Worlds.jsx'
 
 function App() {
     return (
-        <>
-            <Canvas>
-                <Sky />
-                <ambientLight />
-                <FPV />
-                <Physics>
-                    <Cubes />
-                    <Player />
-                    <Ground />
-                </Physics>
-            </Canvas>
-            <InventoryBar />
-            <Cursor />
-        </>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/worlds' element={<Worlds />} />
+            <Route path='/game' element={<Game />} />
+            <Route path='*' element={<Home />} />
+        </Routes>
     )
 }
 
