@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { splashTexts } from '../constants/splash.js'
 
 export default function Home() {
     return (
@@ -12,7 +13,7 @@ export default function Home() {
                 <div className='relative w-2/5 h-auto flex flex-col items-center justify-center overflow-visible mt-16'>
                     <img src='/src/assets/images/minecraft.svg' alt='logo' className='w-full h-auto' />
                     <span className='absolute bottom-2 -right-20 w-fit h-fit text-[yellow] text-3xl text-shadow -rotate-[20deg] animate-pulse'>
-                        React Edition
+                        {splashTexts[Math.floor(Math.random() * splashTexts.length)]}
                     </span>
                 </div>
                 <Link to='/worlds' className='w-1/3 h-auto flex items-center justify-center bg-neutral-500 hover:bg-neutral-800 text-white text-2xl leading-none border-ridge border-4 mt-20 py-2'>
