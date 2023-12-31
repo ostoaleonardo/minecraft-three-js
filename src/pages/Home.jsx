@@ -7,7 +7,7 @@ export default function Home() {
         <main className='w-full h-full flex flex-col items-center justify-center bg-cover bg-background'>
             <div className='w-full h-full flex flex-col items-center backdrop-blur-sm'>
                 <div className='relative w-2/5 h-auto flex flex-col items-center justify-center overflow-visible mt-16'>
-                    <img src={logoImg} alt='logo' className='w-full h-auto' />
+                    <img src={logoImg} width='600' height='100' alt='logo' className='w-full h-auto' />
                     <span className='absolute bottom-2 -right-20 w-fit h-fit text-[yellow] text-3xl text-shadow -rotate-[20deg] animate-pulse'>
                         {splashTexts[Math.floor(Math.random() * splashTexts.length)]}
                     </span>
