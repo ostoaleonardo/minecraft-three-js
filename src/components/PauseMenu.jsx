@@ -1,13 +1,23 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useKeyboard } from '../hooks/useKeyboard'
-import { useEffect, useState } from 'react'
 
 export function PauseMenu() {
     const { escape } = useKeyboard()
     const [paused, setPaused] = useState(false)
 
     useEffect(() => {
-        if (escape) setPaused(!paused)
+        if (escape) setPaused(true)
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) setPaused(true)
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange)
+        
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange)
+        }
     }, [escape])
 
     if (!paused) return null
