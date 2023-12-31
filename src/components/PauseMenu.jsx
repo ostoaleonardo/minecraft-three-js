@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useKeyboard } from '../hooks/useKeyboard'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useStore } from '../hooks/useStore.js'
+import { useKeyboard } from '../hooks/useKeyboard.js'
 
 export function PauseMenu() {
+    const { id } = useParams()
     const { escape } = useKeyboard()
     const [paused, setPaused] = useState(false)
+    const [saveWorld] = useStore((state) => [state.saveWorld])
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (escape) setPaused(true)
@@ -20,6 +24,11 @@ export function PauseMenu() {
         }
     }, [escape])
 
+    const handleSaveWorld = () => {
+        saveWorld(id)
+        navigate('/worlds')
+    }
+
     if (!paused) return null
 
     return (
@@ -34,9 +43,9 @@ export function PauseMenu() {
                     <button onClick={() => setPaused(false)} className='w-72 h-auto flex items-center justify-center bg-neutral-500 hover:bg-neutral-800 text-white text-xl leading-none border-ridge border-4 py-2'>
                         Resume
                     </button>
-                    <Link to='/worlds' className='w-72 h-auto flex items-center justify-center bg-neutral-500 hover:bg-neutral-800 text-white text-xl leading-none border-ridge border-4 py-2'>
+                    <button onClick={handleSaveWorld} className='w-72 h-auto flex items-center justify-center bg-neutral-500 hover:bg-neutral-800 text-white text-xl leading-none border-ridge border-4 py-2'>
                         Save & Quit
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
