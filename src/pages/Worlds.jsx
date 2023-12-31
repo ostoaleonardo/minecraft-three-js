@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { WorldCard } from '../components/WorldCard'
 import { useStore } from '../hooks/useStore.js'
+import '../styles/scroll.css'
 
 export default function Worlds() {
     const [worlds] = useStore((state) => [state.worlds])
@@ -33,15 +34,17 @@ export default function Worlds() {
                         Select World
                     </h2>
                 </div>
-                <div className='w-full flex flex-1 flex-col items-center backdrop-brightness-[.1] py-2'>
+                <div className='w-full flex flex-1 flex-col items-center backdrop-brightness-[.1]'>
                     {worlds.length === 0 ? (
                         <span className='w-auto h-auto flex flex-col justify-center text-white/50 text-xl mt-6'>
                             You don't have any worlds yet.
                         </span>
                     ) : (
-                        worlds.map((world) => (
-                            <WorldCard key={world.id} world={world} selectedWorld={selectedWorld} handleSelectedWorld={handleSelectedWorld} />
-                        ))
+                        <div className='w-full overflow-y-auto overflow-x-hidden px-[30%]'>
+                            {worlds.map((world) => (
+                                <WorldCard key={world.id} world={world} selectedWorld={selectedWorld} handleSelectedWorld={handleSelectedWorld} />
+                            ))}
+                        </div>
                     )}
                 </div>
                 <div className='w-full h-auto flex flex-row flex-wrap items-center justify-center backdrop-brightness-[.25] gap-4 px-[10%] py-6'>
