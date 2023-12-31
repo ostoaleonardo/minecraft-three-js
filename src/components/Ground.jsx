@@ -18,8 +18,6 @@ export function Ground() {
         addCube(x, y, z)
     }
 
-
-
     return (
         <mesh
             ref={ref}

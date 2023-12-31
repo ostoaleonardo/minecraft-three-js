@@ -30,16 +30,14 @@ export function InventoryBar() {
 
     return (
         <section className='inventory-bar'>
-            <div className='inventory-items'>
-                {Object.entries(images).map(([key, value]) => (
-                    <img
-                        key={key}
-                        src={value}
-                        alt={key}
-                        className={`inventory-item ${texture + 'Img' === key && 'selected-item'}`}
-                    />
-                ))}
-            </div>
+            {Object.entries(images).map(([key, value]) => (
+                <img
+                    key={key}
+                    src={value}
+                    alt={key}
+                    className={`inventory-item ${texture + 'Img' === key && 'selected-item'}`}
+                />
+            ))}
         </section>
     )
 }

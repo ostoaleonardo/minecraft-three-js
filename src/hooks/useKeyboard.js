@@ -11,6 +11,7 @@ const ACTIONS_KEYBOARD = {
     Digit3: 'grass',
     Digit4: 'log',
     Digit5: 'wood',
+    Escape: 'escape',
 }
 
 export function useKeyboard() {
@@ -25,6 +26,7 @@ export function useKeyboard() {
         grass: false,
         log: false,
         wood: false,
+        escape: false,
     })
 
     useEffect(() => {

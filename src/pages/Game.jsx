@@ -7,10 +7,12 @@ import { Player } from '../components/Player.jsx'
 import { Ground } from '../components/Ground.jsx'
 import { Cursor } from '../components/Cursor.jsx'
 import { InventoryBar } from '../components/InventoryBar.jsx'
+import { PauseMenu } from '../components/PauseMenu.jsx'
 
 export default function Game() {
     return (
         <>
+            <PauseMenu />
             <Canvas>
                 <Sky />
                 <ambientLight />

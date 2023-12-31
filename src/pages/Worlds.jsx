@@ -16,7 +16,7 @@ export default function Worlds() {
     return (
         <main className='w-full h-full flex flex-col items-center justify-center bg-[length:100px] bg-dirt bg-repeat bg-pixelated'>
             <div className='w-full h-full flex flex-col items-center '>
-                <div className='w-full h-32 flex flex-col items-center justify-center overflow-visible backdrop-brightness-[.25]'>
+                <div className='w-full h-32 flex flex-col items-center justify-center backdrop-brightness-[.25]'>
                     <h2 className='w-fit h-fit text-white text-2xl'>
                         Select World
                     </h2>
