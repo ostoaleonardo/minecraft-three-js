@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { splashTexts } from '../constants/splash.js'
-
-const logoImg = require('../assets/images/logo.png')
+import logoImg from '../assets/images/minecraft.svg'
 
 export default function Home() {
     return (
