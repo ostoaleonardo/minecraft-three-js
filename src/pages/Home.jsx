@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import { splashTexts } from '../constants/splash.js'
-import * as images from '../assets/images/images.js'
+
+const logoImg = require('../assets/images/logo.png')
 
 export default function Home() {
     return (
         <main className='w-full h-full flex flex-col items-center justify-center bg-cover bg-background'>
             <div className='w-full h-full flex flex-col items-center backdrop-blur-sm'>
                 <div className='relative w-2/5 h-auto flex flex-col items-center justify-center overflow-visible mt-16'>
-                    <img src={images.logoImg} alt='logo' className='w-full h-auto' />
+                    <img src={logoImg} alt='logo' className='w-full h-auto' />
                     <span className='absolute bottom-2 -right-20 w-fit h-fit text-[yellow] text-3xl text-shadow -rotate-[20deg] animate-pulse'>
                         {splashTexts[Math.floor(Math.random() * splashTexts.length)]}
                     </span>

@@ -1,6 +1,3 @@
-// Logo
-export { default as logoImg } from './minecraft.svg'
-
 // Textures
 export { default as dirtImg } from './dirt.jpg'
 export { default as glassImg } from './glass.png'
