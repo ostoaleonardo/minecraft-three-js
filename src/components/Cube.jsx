@@ -5,6 +5,7 @@ import * as textures from '../assets/images/textures.js'
 
 export function Cube({ id, position, texture }) {
     const [isHovered, setIsHovered] = useState(false)
+    const [addCube] = useStore((state) => [state.addCube])
     const [removeCube] = useStore((state) => [state.removeCube])
     const [ref] = useBox(() => ({
         type: 'Static',
@@ -24,10 +25,26 @@ export function Cube({ id, position, texture }) {
     }
 
     const handleClick = (event) => {
-        if (event.button === 2) {
-            event.stopPropagation()
-            removeCube(id)
+        event.stopPropagation()
+        switch (event.button) {
+            case 0:
+                return handleLeftClick(event)
+            case 2:
+                return handleRightClick()
+            default:
+                return
         }
+    }
+
+    const handleLeftClick = (event) => {
+        const [x, y, z] = Object.values(event.point).map((coord) =>
+            Math.ceil(coord)
+        )
+        addCube(x, y, z)
+    }
+
+    const handleRightClick = () => {
+        removeCube(id)
     }
 
     return (
@@ -38,7 +55,7 @@ export function Cube({ id, position, texture }) {
             onPointerOut={handleUnhover}
         >
             <boxGeometry attach='geometry' />
-            <meshStandardMaterial map={activeTexture} attach='material' color={isHovered ? 'grey' : 'white'} />
+            <meshStandardMaterial transparent map={activeTexture} attach='material' color={isHovered ? 'grey' : 'white'} />
         </mesh>
     )
 }

@@ -1,6 +1,6 @@
 import { usePlane } from '@react-three/cannon'
-import { grassTexture } from '../assets/images/textures.js'
 import { useStore } from '../hooks/useStore.js'
+import { groundTexture } from '../assets/images/textures.js'
 
 export function Ground() {
     const [addCube] = useStore((state) => [state.addCube])
@@ -8,7 +8,8 @@ export function Ground() {
         rotation: [-Math.PI / 2, 0, 0],
         position: [0, -0.5, 0]
     }))
-    grassTexture.repeat.set(200, 200)
+
+    groundTexture.repeat.set(120, 120)
 
     const handleClickGround = (event) => {
         event.stopPropagation()
@@ -24,7 +25,7 @@ export function Ground() {
             onClick={handleClickGround}
         >
             <planeGeometry attach='geometry' args={[100, 100]} />
-            <meshStandardMaterial attach='material' map={grassTexture} />
+            <meshStandardMaterial attach='material' map={groundTexture} />
         </mesh>
     )
 }
